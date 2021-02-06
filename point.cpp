@@ -26,18 +26,25 @@ double Point::distanceFromOrigin(){
 
 Quadrant Point::quadrant() const{
     if (0==m_x)
-        // std::cout<<"";
         return Yaxis;
     if(0==m_y)
         return Xaxis;
     if(0==m_x && 0==m_y)
         return Origin;
     
-    if(m_x>0 && m_y>0)
+    if(m_x>0 && m_y>0){
+        // std::cout<<"inside Q1";
        return Q1;
 
+    }
+        
+
     if(m_x<0 && m_y>0)
+       {
+        std::cout<<"inside the quad Q2";
        return Q2;
+
+    }
 
     if(m_x<0 && m_y<0)
        return Q3;
@@ -55,14 +62,12 @@ bool Point::isOrigin() const{
 
 bool Point::isOnXAxis() const{
     if(m_y==0){
-        if(m_x!=0)
           return true;
     }
 
 }
 bool Point::isOnYAxis() const{
     if(m_x==0){
-        if(m_y!=0)
           return true;
     }
 

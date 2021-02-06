@@ -6,20 +6,20 @@ namespace{
         Point p2(1,0);
         Point p3(0,-1000);
 
-        EXPECT_EQ(true, p1.isOrigin());
-        EXPECT_EQ(false, p2.isOrigin());
-        EXPECT_EQ(false, p3.isOrigin());
+        EXPECT_TRUE(p1.isOrigin());
+        EXPECT_FALSE(p2.isOrigin());
+        EXPECT_FALSE(p3.isOrigin());
 
     }
 
     TEST(Point,Xaxis){
         Point p1(2,0);
-        Point p1(-600,0);
-        Point p1(0,0);
+        Point p2(-600,0);
+        Point p3(0,0);
 
-        EXPECT_EQ(true, p1.isOnXAxis());
-        EXPECT_EQ(false, p1.isOnXAxis());
-        EXPECT_EQ(true, p1.isOnXAxis());
+        EXPECT_TRUE(p1.isOnXAxis());
+        EXPECT_FALSE(p2.isOnXAxis());
+        EXPECT_FALSE(p3.isOnXAxis());
 
     }
 
@@ -28,9 +28,9 @@ namespace{
         Point p2(-1000,2);
         Point p3(0,0);
 
-        EXPECT_EQ(true, p1.isOnYAxis());
-        EXPECT_EQ(false, p2.isOnYAxis());
-        EXPECT_EQ(true, p3.isOnYAxis());
+        EXPECT_TRUE(p1.isOnYAxis());
+        EXPECT_FALSE(p2.isOnYAxis());
+        EXPECT_TRUE(p3.isOnYAxis());
 
     }
 
@@ -43,13 +43,27 @@ namespace{
         Point p6(2,0);
         Point p7(0,0);
 
-        EXPECT_EQ(Q1, p1.quadrant());
-        EXPECT_EQ(Q2, p2.quadrant());
-        EXPECT_EQ(Q4, p3.quadrant());
-        EXPECT_EQ(Q3, p4.quadrant());
-        EXPECT_EQ(Yaxis, p5.quadrant());
-        EXPECT_EQ(Xaxis, p6.quadrant());
-        EXPECT_EQ(Origin, p7.quadrant());
+        
+        Quadrant temp1 = p1.quadrant();
+        EXPECT_EQ(Q1, temp1);
+
+        Quadrant temp2 = p2.quadrant();
+        EXPECT_EQ(Q2, temp2);
+
+        Quadrant temp3 = p3.quadrant();
+        EXPECT_EQ(Q4, temp3);
+
+        Quadrant temp4 = p4.quadrant();
+        EXPECT_EQ(Q3, temp4);
+
+        Quadrant temp5 = p5.quadrant();
+        EXPECT_EQ(Q3, temp5);
+
+        Quadrant temp6 = p6.quadrant();
+        EXPECT_EQ(Xaxis, temp6);
+
+        Quadrant temp7 = p7.quadrant();
+        EXPECT_EQ(Origin, temp7);
 
     }
 
